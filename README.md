@@ -31,12 +31,12 @@ WEBRIVERIO-FRAMEWORK/
 
 ##  Features
 
-* ✅ WebDriverIO with TypeScript
-* ✅ Page Object Model (POM)
-* ✅ Data-driven testing using Excel
-* ✅ Reusable utility functions
-* ✅ Random test data generation (email)
-* ✅ Scalable and maintainable structure
+*  WebDriverIO with TypeScript
+*  Page Object Model (POM)
+*  Data-driven testing using Excel
+*  Reusable utility functions
+*  Random test data generation (email)
+*  Scalable and maintainable structure
 
 ---
 
@@ -154,9 +154,3 @@ export function generateRandomEmail(): string {
 
 **Piyush Kushwah**
 QA Automation Engineer
-
----
-
-##  License
-
-This project is for learning and internal use.
