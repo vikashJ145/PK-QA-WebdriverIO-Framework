@@ -1,7 +1,7 @@
 import loginPage from '../pageobjects/login.page';
-import LoginPage from '../pageobjects/login.page'
-import { getExcelData } from '../utils/excelReader'
+import { getExcelData } from '../utils/excelReader';
 import * as path from 'path';
+import { browser } from '@wdio/globals';
 
 describe('Signup Test (Excel Data)', () => {
 
@@ -17,12 +17,12 @@ describe('Signup Test (Excel Data)', () => {
 
         for (const data of testData) {
 
-            await LoginPage.open()
-            await browser.pause(2000)
-
-            await LoginPage.userSignUp(data.Name, data.Email);
-            await LoginPage.clickTitleDotButton();
-            await loginPage.enterPassword('Test@123')
+            await loginPage.open();
+            await loginPage.waitForPageLoad();
+            await loginPage.userSignUp(data.Name, data.Email);
+            await loginPage.clickTitleDotButton();
+            await loginPage.enterPassword('Test@123');
+            await loginPage.clickDaysDropdown();
         }
     });
 });

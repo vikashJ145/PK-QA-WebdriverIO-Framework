@@ -24,7 +24,14 @@ class LoginPage extends Page {
     }
 
     public get passwordField () {
-        return $('//input[@id="password"]');
+        return $('[id="password"]');
+    }
+    public get daysDropdown () {
+        return $('[data-qa="days"]');
+    }
+
+    async waitForPageLoad() {
+    await this.inputUsername.waitForDisplayed({ timeout: 5000 });
     }
 
 
@@ -40,6 +47,10 @@ class LoginPage extends Page {
 
     public async enterPassword (password: string) {
         await this.passwordField.setValue(password);
+    }
+
+     public async clickDaysDropdown () {
+        await this.daysDropdown.click();
     }
 }
 
