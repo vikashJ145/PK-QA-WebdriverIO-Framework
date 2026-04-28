@@ -14,9 +14,9 @@ class LoginPage extends Page {
     public get btnSubmit () {
         return $('[data-qa="signup-button"]');
     }
-     public open () {
-        return super.open('login');
-    }
+     public open (url: string) {
+    return super.open(url);
+}
 
 
     public get titleDotButton () {
