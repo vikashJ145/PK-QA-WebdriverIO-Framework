@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import Page from './page';
+import Page from './basePage';
 
 class LoginPage extends Page {
 
@@ -19,7 +19,7 @@ class LoginPage extends Page {
 }
 
 
-    public get titleDotButton () {
+    public get mrAndMrsTitleDotButton () {
         return $('[id="id_gender1"]');
     }
 
@@ -41,8 +41,8 @@ class LoginPage extends Page {
         await this.btnSubmit.click();
     }
 
-    public async clickTitleDotButton () {
-        await this.titleDotButton.click();
+    public async clickMrAndMrsTitleDotButton () {
+        await this.mrAndMrsTitleDotButton.click();
     }
 
     public async enterPassword (password: string) {

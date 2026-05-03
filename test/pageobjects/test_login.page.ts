@@ -1,13 +1,12 @@
 import { $ } from '@wdio/globals'
-import Page from './page';
+import Page from './basePage';
 
 class TestLoginPage extends Page {
 
     public get inputUsername () {
         return $('[id="username"]');
     }
-        
-
+    
     public get inputPassword () {
         return $('[id="password"]');
     }
@@ -15,17 +14,22 @@ class TestLoginPage extends Page {
     public get btnSubmit () {   
         return $('[id="submit"]');
     }
-
-
-    async waitForPageLoad() {
-    await this.inputUsername.waitForDisplayed({ timeout: 5000 });
+    public get afterLoginTextMessage () {
+        return $('//h1[text()="Logged In Successfully"]');
     }
 
 
-    public async userSignUp (username: string, emailAddress: string) {
-        await this.inputUsername.setValue(username);
+    async waitForPageLoad() {
+    await this.inputUsername.waitForDisplayed();
+    }
+
+
+    public async userSignUp (userName: string, emailAddress: string) {
+        await this.inputUsername.waitForDisplayed();
+        await this.inputUsername.setValue(userName);
         await this.inputPassword.setValue(emailAddress);
         await this.btnSubmit.click();
+        await this.afterLoginTextMessage.waitForDisplayed();
     }
 }
 

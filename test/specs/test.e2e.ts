@@ -19,7 +19,7 @@ describe('Signup Test (Excel Data)', () => {
             await loginPage.open('login');
             await loginPage.waitForPageLoad();
             await loginPage.userSignUp(data.Name, data.Email);
-            await loginPage.clickTitleDotButton();
+            await loginPage.clickMrAndMrsTitleDotButton();
             await loginPage.enterPassword('Test@123');
             await loginPage.clickDaysDropdown();
         }
