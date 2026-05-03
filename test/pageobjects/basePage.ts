@@ -6,7 +6,10 @@ import { browser } from '@wdio/globals'
 */
 export default class Page {
    
-    public open (path: string) {
-        return browser.url(`https://www.automationexercise.com/${path}`)
+   public open (path: string) {
+    if (path.startsWith('http')) {
+        return browser.url(path)
     }
+    return browser.url(`https://www.automationexercise.com/${path}`)
+}
 }
