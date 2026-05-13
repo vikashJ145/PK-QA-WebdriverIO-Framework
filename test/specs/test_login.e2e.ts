@@ -18,5 +18,8 @@ describe('Login Test (Excel Data)', () => {
             await testLoginPage.open('https://practicetestautomation.com/practice-test-login/');
             await testLoginPage.waitForPageLoad();
             await testLoginPage.userSignUp('student', 'Password123');
+            await testLoginPage.clickAndVerifyHomeScreen();
+            await testLoginPage.VerifyAndEnterName('Piyush');
+            await testLoginPage.VerifyAndEnterEmailAddress('testing23@gmai.com');
     });
 });
