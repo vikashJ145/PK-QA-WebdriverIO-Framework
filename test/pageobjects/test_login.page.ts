@@ -52,18 +52,19 @@ class TestLoginPage extends Page {
         await this.websiteHomeButton.click();
        
     }
+    
     public async VerifyAndEnterName (name: string) {
         await this.inputName.scrollIntoView();
         await this.inputName.waitForDisplayed();
         await this.inputName.setValue(name);
     }
 
-        public async VerifyAndEnterEmailAddress (email: string) {  
+    public async VerifyAndEnterEmailAddress (email: string) {  
         await this.emailField.waitForDisplayed();
         await this.emailField.setValue(email);
     }
 
-       public async clickSubscribeButton () {
+    public async clickSubscribeButton () {
         await this.xpathCheatSheetButton.waitForDisplayed();
         await this.xpathCheatSheetButton.click();
     }
