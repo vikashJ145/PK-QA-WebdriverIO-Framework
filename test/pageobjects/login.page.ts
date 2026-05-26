@@ -29,6 +29,25 @@ class LoginPage extends Page {
     public get daysDropdown () {
         return $('[data-qa="days"]');
     }
+    public get monthsDropdown () {
+        return $('[//select[@data-qa="months"]');
+    }
+    public get yearsDropdown () {
+        return $('//select[@data-qa="years"]');
+    }
+    public get newsletterCheckbox () {
+        return $('//input[@id="newsletter"]');
+    }
+    public get offersCheckbox () {
+        return $('//input[@id="optin"]');
+    }
+    public get inputFirstName () {
+        return $('//input[@id="first_name"]');
+    }
+    public get inputLastName () {
+        return $('//input[@id="last_name"]');
+    }
+
 
     async waitForPageLoad() {
     await this.inputUsername.waitForDisplayed({ timeout: 5000 });
@@ -52,6 +71,34 @@ class LoginPage extends Page {
      public async clickDaysDropdown () {
         await this.daysDropdown.click();
     }
+
+    public async clickMonthsDropdown () {
+        await this.monthsDropdown.click();
+    }
+
+    public async clickYearsDropdown () {
+        await this.yearsDropdown.waitForDisplayed();
+        await this.yearsDropdown.click();
+    }
+
+    public async clickNewsletterCheckbox () {
+        await this.newsletterCheckbox.waitForDisplayed();
+        await this.newsletterCheckbox.click();
+    }
+    public async clickOffersCheckbox () {
+        await this.offersCheckbox.waitForDisplayed();
+        await this.offersCheckbox.click();  
+    }
+    
+    public async enterFirstName (firstName: string) {   
+        await this.inputFirstName.waitForDisplayed();
+        await this.inputFirstName.setValue(firstName);  
+        }
+
+        public async enterLastName (lastName: string) { 
+        await this.inputLastName.waitForDisplayed();
+        await this.inputLastName.setValue(lastName);  
+        }
 }
 
 export default new LoginPage();

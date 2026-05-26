@@ -21,7 +21,13 @@ describe('Signup Test (Excel Data)', () => {
             await loginPage.userSignUp(data.Name, data.Email);
             await loginPage.clickMrAndMrsTitleDotButton();
             await loginPage.enterPassword('Test@123');
-            await loginPage.clickDaysDropdown();
+            await loginPage.clickDaysDropdown(); 
+            await loginPage.clickMonthsDropdown();
+            await loginPage.clickYearsDropdown();
+            await loginPage.clickNewsletterCheckbox();
+            await loginPage.clickOffersCheckbox();
+            await loginPage.enterFirstName(data.Name);
+            await loginPage.enterLastName('Test');
         }
     });
 });
