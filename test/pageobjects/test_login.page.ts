@@ -19,10 +19,26 @@ class TestLoginPage extends Page {
     }
 
 
+    public get inputName () {
+        return $('//input[@data-automation-id="form_first_name"]');
+    }
+
     async waitForPageLoad() {
     await this.inputUsername.waitForDisplayed();
     }
 
+
+    public get websiteHomeButton () {
+        return $('//a[text()="Home"]');
+    }
+
+    public get emailField () {
+        return $('//input[@data-automation-id="form_email"]');
+    }
+      
+    public get xpathCheatSheetButton () {
+        return $('//input[@data-automation-id="subscribe-submit-button"]');
+    }
 
     public async userSignUp (userName: string, emailAddress: string) {
         await this.inputUsername.waitForDisplayed();
@@ -31,6 +47,28 @@ class TestLoginPage extends Page {
         await this.btnSubmit.click();
         await this.afterLoginTextMessage.waitForDisplayed();
     }
+
+    public async clickAndVerifyHomeScreen () {
+        await this.websiteHomeButton.click();
+       
+    }
+    
+    public async VerifyAndEnterName (name: string) {
+        await this.inputName.scrollIntoView();
+        await this.inputName.waitForDisplayed();
+        await this.inputName.setValue(name);
+    }
+
+    public async VerifyAndEnterEmailAddress (email: string) {  
+        await this.emailField.waitForDisplayed();
+        await this.emailField.setValue(email);
+    }
+
+    public async clickSubscribeButton () {
+        await this.xpathCheatSheetButton.waitForDisplayed();
+        await this.xpathCheatSheetButton.click();
+    }
+
 }
 
 export default new TestLoginPage();
