@@ -30,7 +30,7 @@ class LoginPage extends Page {
         return $('[data-qa="days"]');
     }
     public get monthsDropdown () {
-        return $('[//select[@data-qa="months"]');
+        return $('//select[@data-qa="months"]');
     }
     public get yearsDropdown () {
         return $('//select[@data-qa="years"]');

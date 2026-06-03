@@ -26,6 +26,7 @@ class DemoQAPage extends Page {
     }
 
     public async verifyAndClickTextBoxOption () {    
+        await this.textBoxOption.scrollIntoView();
         await this.textBoxOption.waitForDisplayed({ timeout: 5000 });
         await this.textBoxOption.click();
     }
