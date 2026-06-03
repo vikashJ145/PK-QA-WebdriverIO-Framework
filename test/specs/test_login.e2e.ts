@@ -20,7 +20,7 @@ describe('Login Test (Excel Data)', () => {
             await testLoginPage.userSignUp('student', 'Password123');
             await testLoginPage.clickAndVerifyHomeScreen();
             await testLoginPage.VerifyAndEnterName('Piyush');
-            await testLoginPage.VerifyAndEnterEmailAddress('testing23@gmai.com');
+            await testLoginPage.VerifyAndEnterEmailAddress('testing23@gmail.com');
             await testLoginPage.clickSubscribeButton();
     });
 });
