@@ -47,8 +47,6 @@ class LoginPage extends Page {
         return $('//input[@id="last_name"]');
     }
 
-
-
     async waitForPageLoad() {
     await this.inputUsername.waitForDisplayed({ timeout: 50000 });
     }
@@ -77,26 +75,10 @@ class LoginPage extends Page {
         
     }
 
-     public async clickDaysDropdown () {
-        await this.daysDropdown.waitForDisplayed();
-        await this.daysDropdown.waitForClickable();
-        await this.daysDropdown.scrollIntoView();
-        await this.daysDropdown.click();
-    }
-
-    public async clickMonthsDropdown () {
-       await this.monthsDropdown.waitForExist();
-       await this.monthsDropdown.scrollIntoView();
-       await this.monthsDropdown.waitForDisplayed();
-       await this.monthsDropdown.waitForClickable({ timeout: 50000 });
-       await this.monthsDropdown.click();
-    }
-
     public async selectYear(year: string) {
     await this.yearsDropdown.waitForDisplayed();
     await this.yearsDropdown.waitForClickable();
     await this.yearsDropdown.scrollIntoView();
-    await this.yearsDropdown.click();
     await this.yearsDropdown.selectByVisibleText(year);
     }
 
@@ -105,35 +87,35 @@ class LoginPage extends Page {
         await this.newsletterCheckbox.waitForDisplayed();
         await this.yearsDropdown.waitForClickable();
         await this.newsletterCheckbox.click();
-}
+    }
     public async clickOffersCheckbox () {
         await this.offersCheckbox.waitForDisplayed();
         await this.offersCheckbox.click();  
-}
+    }
     
     public async enterFirstName (firstName: string) {   
         await this.inputFirstName.waitForDisplayed();
         await this.inputFirstName.setValue(firstName);  
         
-}
+    }
 
     public async enterLastName (lastName: string) { 
         await this.inputLastName.waitForDisplayed({ timeout: 50000 });
         await this.inputLastName.setValue(lastName);  
         
-}
+    }
 
     public async selectMonth(month: string) {
         await this.monthsDropdown.waitForDisplayed();
         await this.monthsDropdown.selectByVisibleText(month);
-}
+    }
 
     public async selectDay(day: string) {
         await this.daysDropdown.waitForExist();
         await this.daysDropdown.waitForDisplayed();
         await this.daysDropdown.waitForClickable();
         await this.daysDropdown.selectByVisibleText(day);
-}
+    }
 }
 
 export default new LoginPage();
