@@ -76,9 +76,6 @@ class LoginPage extends Page {
     }
 
     public async selectYear(year: string) {
-    await this.yearsDropdown.waitForDisplayed();
-    await this.yearsDropdown.waitForClickable();
-    await this.yearsDropdown.scrollIntoView();
     await this.yearsDropdown.selectByVisibleText(year);
     }
 
