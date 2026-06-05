@@ -1,14 +1,13 @@
-import loginPage from '../pageobjects/login.page';
-import demoqaPage from '../pageobjects/demoQAPage';
+import demoQAPage from '../pageobjects/demoQAPage';
 describe('Signup Test', () => {
 
     it('should signup', async () => {
 
-            await loginPage.open('https://demoqa.com/');
-            await demoqaPage.verifyAndClickElementTab();
-            await demoqaPage.verifyAndClickTextBoxOption();
-            await demoqaPage.enterUserName("Piyush Kushwah");
-            await demoqaPage.enterEmail('Piyushkushwah4033@gmail.com');
+            await demoQAPage.open('https://demoqa.com/');
+            await demoQAPage.verifyAndClickElementTab();
+            await demoQAPage.verifyAndClickTextBoxOption();
+            await demoQAPage.enterUserName("Piyush Kushwah");
+            await demoQAPage.enterEmail('Piyushkushwah4033@gmail.com');
         
     });
 });

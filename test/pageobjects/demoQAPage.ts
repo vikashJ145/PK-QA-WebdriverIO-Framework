@@ -4,6 +4,11 @@ import Page from './basePage';
 
 class DemoQAPage extends Page {
 
+
+     public open (url: string) {
+    return super.open(url);
+}
+
     public get elementsCard () {
         return $("//h5[text()='Elements']");
     }
