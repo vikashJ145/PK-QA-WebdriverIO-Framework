@@ -1,6 +1,5 @@
 import demoQAPage from '../pageobjects/demoQAPage';
 describe('Signup Test', () => {
-
     it('should signup', async () => {
 
             await demoQAPage.open('https://demoqa.com/');
