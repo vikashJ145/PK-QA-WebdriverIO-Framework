@@ -4,6 +4,11 @@ import Page from './basePage';
 
 class DemoQAPage extends Page {
 
+
+     public open (url: string) {
+    return super.open(url);
+}
+
     public get elementsCard () {
         return $("//h5[text()='Elements']");
     }
@@ -26,6 +31,7 @@ class DemoQAPage extends Page {
     }
 
     public async verifyAndClickTextBoxOption () {    
+        await this.textBoxOption.scrollIntoView();
         await this.textBoxOption.waitForDisplayed({ timeout: 5000 });
         await this.textBoxOption.click();
     }
