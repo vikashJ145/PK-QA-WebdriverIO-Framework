@@ -46,7 +46,8 @@ class RegisterExistingPage extends Page {
     }
 
     public async verifyExistingEmailError(expectedText: string) {
-    await expect(this.existingEmailError).toHaveText(expectedText);
+        await this.existingEmailError.waitForDisplayed();
+        await expect(this.existingEmailError).toHaveText(expectedText);
 }
         public async clickHome() { 
         await this.homeBtn.click();

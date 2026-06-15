@@ -23,9 +23,11 @@ describe('Signup Test (Excel Data)', () => {
     it('should signup using excel data', async () => {
             await basePage.open('http://automationexercise.com');
             await registerExistingPage.clickSignupLogin();
-            await registerExistingPage.enterName(testData[1].name);
-            await registerExistingPage.enterEmail(testData[1].email);
-            await registerExistingPage.clickSignup();
-            await registerExistingPage.verifyExistingEmailError('Email Address already exist!');
+
+           const user = testData[1];
+           await registerExistingPage.enterName(user.Name);
+           await registerExistingPage.enterEmail(user.Email);
+           await registerExistingPage.clickSignup();
+           await registerExistingPage.verifyExistingEmailError('Email Address already exist!');
     });
 });
