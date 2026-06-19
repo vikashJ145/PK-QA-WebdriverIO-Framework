@@ -32,13 +32,16 @@ pipeline {
 
     post {
     always {
-        archiveArtifacts artifacts: 'allure-results/**', allowEmptyArchive: true
+        dir('C:/Users/piyus/OneDrive/Documents/Vikash_Web/-PK-QA-WebdriverIO-Framework') {
 
-        allure([
-            includeProperties: false,
-            jdk: '',
-            results: [[path: 'allure-results']]
-        ])
+            archiveArtifacts artifacts: 'allure-results/**', allowEmptyArchive: true
+
+            allure([
+                includeProperties: false,
+                jdk: '',
+                results: [[path: 'allure-results']]
+            ])
+        }
     }
 }
 }
