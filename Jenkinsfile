@@ -11,7 +11,7 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
+        stage('Run WebdriverIO Tests') {
             steps {
                 dir('C:/Users/piyus/OneDrive/Documents/Vikash_Web/-PK-QA-WebdriverIO-Framework') {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -20,28 +20,22 @@ pipeline {
                 }
             }
         }
-
-        stage('Generate Allure Report') {
-            steps {
-                dir('C:/Users/piyus/OneDrive/Documents/Vikash_Web/-PK-QA-WebdriverIO-Framework') {
-                    bat 'allure generate allure-results --clean -o allure-report'
-                }
-            }
-        }
     }
 
     post {
-    always {
-        dir('C:/Users/piyus/OneDrive/Documents/Vikash_Web/-PK-QA-WebdriverIO-Framework') {
+        always {
+            dir('C:/Users/piyus/OneDrive/Documents/Vikash_Web/-PK-QA-WebdriverIO-Framework') {
 
-            archiveArtifacts artifacts: 'allure-results/**', allowEmptyArchive: true
+                // Archive Allure Results
+                archiveArtifacts artifacts: 'allure-results/**', allowEmptyArchive: true
 
-            allure([
-                includeProperties: false,
-                jdk: '',
-                results: [[path: 'allure-results']]
-            ])
+                // Publish Allure Report
+                allure(
+                    includeProperties: false,
+                    jdk: '',
+                    results: [[path: 'allure-results']]
+                )
+            }
         }
     }
-}
 }
