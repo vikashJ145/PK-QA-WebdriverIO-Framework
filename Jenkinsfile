@@ -31,8 +31,14 @@ pipeline {
     }
 
     post {
-        always {
-            archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
-        }
+    always {
+        archiveArtifacts artifacts: 'allure-results/**', allowEmptyArchive: true
+
+        allure([
+            includeProperties: false,
+            jdk: '',
+            results: [[path: 'allure-results']]
+        ])
     }
+}
 }
