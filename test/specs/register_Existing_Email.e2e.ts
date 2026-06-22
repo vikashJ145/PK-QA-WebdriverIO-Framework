@@ -20,7 +20,7 @@ describe('Signup Test (Excel Data)', () => {
         console.log('Excel Data:', testData);
     });
 
-    it('should signup using excel data', async () => {
+    it('should signup in automation exercise', async () => {
             await basePage.open('http://automationexercise.com');
             await registerExistingPage.clickSignupLogin();
 
