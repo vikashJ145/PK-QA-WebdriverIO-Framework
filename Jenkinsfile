@@ -30,23 +30,23 @@ pipeline {
 
             dir('C:/Users/piyus/OneDrive/Documents/Vikash_Web/-PK-QA-WebdriverIO-Framework') {
 
-                // Archive Allure Results
                 archiveArtifacts artifacts: 'allure-results/**', allowEmptyArchive: true
 
-                // Generate Allure Report
                 allure(
                     includeProperties: false,
                     jdk: '',
                     results: [[path: 'allure-results']]
                 )
 
-                echo "Sending Email..."
+                echo '========== SENDING EMAIL =========='
 
                 emailext(
                     to: 'piyushkushwah4022@gmail.com',
+                    from: 'piyushkushwah4022@gmail.com',
+                    replyTo: 'piyushkushwah4022@gmail.com',
                     mimeType: 'text/html',
 
-                    subject: "WebdriverIO Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+                    subject: "[${currentBuild.currentResult}] WebdriverIO Build #${env.BUILD_NUMBER}",
 
                     body: """
                     <html>
@@ -54,7 +54,7 @@ pipeline {
 
                     <h2>Automation Execution Report</h2>
 
-                    <table border="1" cellpadding="5" cellspacing="0">
+                    <table border="1" cellpadding="8" cellspacing="0">
                         <tr>
                             <td><b>Job Name</b></td>
                             <td>${env.JOB_NAME}</td>
@@ -66,7 +66,7 @@ pipeline {
                         </tr>
 
                         <tr>
-                            <td><b>Build Status</b></td>
+                            <td><b>Status</b></td>
                             <td>${currentBuild.currentResult}</td>
                         </tr>
                     </table>
@@ -87,14 +87,14 @@ pipeline {
 
                     <br>
 
-                    <p>Regards,<br>Jenkins Automation</p>
+                    <h3>This email was generated automatically by Jenkins.</h3>
 
                     </body>
                     </html>
                     """
                 )
 
-                echo "EMAIL SENT SUCCESSFULLY"
+                echo '========== EMAIL SENT =========='
             }
         }
     }
