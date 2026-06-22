@@ -35,7 +35,30 @@ pipeline {
                     jdk: '',
                     results: [[path: 'allure-results']]
                 )
-            }
+
+            emailext(
+                subject: "WebdriverIO Automation Report - Build #${BUILD_NUMBER}",
+                body: """
+                <h3>Automation Execution Completed</h3>
+
+                <p><b>Build Number:</b> ${BUILD_NUMBER}</p>
+                <p><b>Build Status:</b> ${currentBuild.currentResult}</p>
+
+                <p>
+                <b>Allure Report:</b><br>
+                <a href="${BUILD_URL}allure">
+                ${BUILD_URL}allure
+                </a>
+                </p>
+
+                <p>Regards,<br>
+                Automation Team</p>
+                """,
+                mimeType: 'text/html',
+                to: 'piyushkushwah4022@gmail.com',
+                attachmentsPattern: 'allure-report.zip'
+            )
         }
+    }
     }
 }
