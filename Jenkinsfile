@@ -40,7 +40,7 @@ pipeline {
 
                 echo '========== SENDING EMAIL =========='
 
-                emailext(
+                mail(
                     to: 'piyushkushwah4022@gmail.com',
                     from: 'piyushkushwah4022@gmail.com',
                     replyTo: 'piyushkushwah4022@gmail.com',
