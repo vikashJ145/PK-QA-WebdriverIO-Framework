@@ -3,7 +3,7 @@ import { getExcelData } from '../utils/excelReader';
 import * as path from 'path';
 
 
-describe('Login Test (Excel Data)', () => {
+describe('Login Test Using Excel', () => {
 
     let testData: any[];
 

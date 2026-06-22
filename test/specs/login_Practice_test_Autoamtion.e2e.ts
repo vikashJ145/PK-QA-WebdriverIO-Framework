@@ -3,7 +3,7 @@ import { getExcelData } from '../utils/excelReader';
 import * as path from 'path';
 
 
-describe('Login Test (Excel Data)', () => {
+describe('Login Practice Automation', () => {
 
     let testData: any[];
 
@@ -13,7 +13,7 @@ describe('Login Test (Excel Data)', () => {
         console.log('Excel Data:', testData); 
     });
 
-    it('Login using excel data', async () => {
+    it('Practice login validation', async () => {
 
             await testLoginPage.open('https://practicetestautomation.com/practice-test-login/');
             await testLoginPage.waitForPageLoad();
