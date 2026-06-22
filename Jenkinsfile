@@ -23,42 +23,42 @@ pipeline {
     }
 
     post {
-        always {
-            dir('C:/Users/piyus/OneDrive/Documents/Vikash_Web/-PK-QA-WebdriverIO-Framework') {
+    always {
+        dir('C:/Users/piyus/OneDrive/Documents/Vikash_Web/-PK-QA-WebdriverIO-Framework') {
 
-                // Archive Allure Results
-                archiveArtifacts artifacts: 'allure-results/**', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'allure-results/**', allowEmptyArchive: true
 
-                // Publish Allure Report
-                allure(
-                    includeProperties: false,
-                    jdk: '',
-                    results: [[path: 'allure-results']]
-                )
+            allure(
+                includeProperties: false,
+                jdk: '',
+                results: [[path: 'allure-results']]
+            )
 
             emailext(
-                subject: "WebdriverIO Automation Report - Build #${BUILD_NUMBER}",
+                subject: "WebdriverIO Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
                 body: """
-                <h3>Automation Execution Completed</h3>
+                <h2>Automation Execution Report</h2>
 
-                <p><b>Build Number:</b> ${BUILD_NUMBER}</p>
-                <p><b>Build Status:</b> ${currentBuild.currentResult}</p>
+                <p><b>Job:</b> ${env.JOB_NAME}</p>
+                <p><b>Build:</b> #${env.BUILD_NUMBER}</p>
+                <p><b>Status:</b> ${currentBuild.currentResult}</p>
 
                 <p>
-                <b>Allure Report:</b><br>
-                <a href="${BUILD_URL}allure">
-                ${BUILD_URL}allure
+                <a href="${env.BUILD_URL}">
+                Open Jenkins Build
                 </a>
                 </p>
 
-                <p>Regards,<br>
-                Automation Team</p>
+                <p>
+                <a href="${env.BUILD_URL}allure">
+                Open Allure Report
+                </a>
+                </p>
                 """,
                 mimeType: 'text/html',
-                to: 'piyushkushwah4022@gmail.com',
-                attachmentsPattern: 'allure-report.zip'
+                to: 'piyushkushwah4022@gmail.com'
             )
         }
-    }
-    }
-}
+        
+        }
+    }}
