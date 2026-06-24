@@ -2,4 +2,3 @@ node_modules/
 dist/
 allure-results/
 allure-report/
-package-lock.json/
