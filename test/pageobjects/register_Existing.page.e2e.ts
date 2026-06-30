@@ -31,29 +31,33 @@ class RegisterExistingPage extends Page {
     public async clickSignupLogin() {
         await this.signupLoginBtn.waitForClickable();
         await this.signupLoginBtn.click();
+        await this.nameInput.waitForDisplayed();
     }
 
     public async enterName(name: string) {
+        await this.nameInput.waitForDisplayed();
         await this.nameInput.setValue(name);
     }
 
     public async enterEmail(email: string) {
+        await this.emailInput.waitForDisplayed();
         await this.emailInput.setValue(email);
     }
 
     public async clickSignup() {
+        await this.signupBtn.waitForClickable();
+        await this.signupBtn.scrollIntoView();
         await this.signupBtn.click();
     }
 
     public async verifyExistingEmailError(expectedText: string) {
-        await this.existingEmailError.waitForDisplayed();
+        await this.existingEmailError.waitForDisplayed({ timeout: 15000 });
         await expect(this.existingEmailError).toHaveText(expectedText);
-}
-        public async clickHome() { 
-        await this.homeBtn.click();
+    }
 
-        }
-            
+    public async clickHome() {
+        await this.homeBtn.click();
+    }
 }
 
 export default new RegisterExistingPage();
